@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        #main li{height: 50px;width: 100px;float: left;line-height: 50px;
+            }
+        .sub{overflow: hidden; height: 0px;}
+         #main:hover .sub{height: 150px; transition: 1s;}
+
+    </style>
+</head>
+<body>
+<ul id="main">
+    <li>m1
+        <ul class="sub">
+            <li>s1</li>
+            <li>s2</li>
+            <li>s3</li>
+        </ul>
+    </li>
+    <li>m2
+        <ul class="sub">
+            <li>s1</li>
+            <li>s2</li>
+            <li>s3</li>
+        </ul>
+    </li>
+    <li>m3
+        <ul class="sub">
+            <li>s1</li>
+            <li>s2</li>
+            <li>s3</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

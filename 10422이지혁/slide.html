@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        #slide{position: relative; height: 300px; width: 500px; margin: 0 auto; overflow: hidden;}
+        #slide div{position: absolute; height: 100%; width: 100%; left: 100%; }
+        #slide div:nth-child(1){background: red; left: 0%;}
+        #slide div:nth-child(2){background: blue;}
+        #slide div:nth-child(3){background:yellow;}
+    </style>
+</head>
+<body>
+<div id="slide">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+<button id="back">back</button>
+<button id="next">next</button>
+<script>
+    var img=$("#slide div");
+    var cnt=0;
+    var max=img.length-1;
+    setInterval(next,2000);
+    function next() {
+        if(img.is(":animated"))return false;
+        $(img[cnt]).animate({"left":"-100%","opacity":"0"}).siblings().css({"left":"100%","opacity":"0"});
+        cnt++;
+        if(cnt>max)cnt=0;
+        $(img[cnt]).animate({"left":"0","opacity":"1"});
+    }
+    $("#next").on("click",next);
+
+    function back() {
+        if(img.is(":animated"))return false;
+        $(img[cnt]).animate({"left":"100%","opacity":"0"}).siblings().css({"left":"-100%","opacity":"0"});
+        cnt--;
+        if(cnt<0)cnt=max;
+        $(img[cnt]).animate({"left":"0","opacity":"1"});
+    }
+    $("#back").on("click",back);
+</script>
+</body>
+</html>
